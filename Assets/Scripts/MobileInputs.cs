@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MobileInputs : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Touch _touch;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.touchCount > 0)
+        {
+           _touch = Input.GetTouch(0);  
+        }
     }
 }
