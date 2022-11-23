@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour
     private Vector3 _initialLoc;
     private Camera _camera;
     private List<Vector2> _aimLine;
-    private GameObject _cannon;
 
     // Update is called once per frame
     private void Start()
@@ -18,7 +17,6 @@ public class InputManager : MonoBehaviour
         {
             _camera = Camera.main;
         }
-        _cannon = GameObject.FindGameObjectWithTag("Cannon");
     }
 
     void Update()
@@ -29,7 +27,7 @@ public class InputManager : MonoBehaviour
         }
         
         // Convert screen space to world space
-        if (_camera == null)
+        if (_camera != null)
         {
             _touchLoc = _camera.ScreenToWorldPoint(_touch.position);
             _touchLoc.z = 0f;
@@ -52,9 +50,6 @@ public class InputManager : MonoBehaviour
     {
         // set initial location to the touch location
         _initialLoc = _touchLoc;
-            
-        // make the aim line visible and set the starting position of aimline to cannons position
-        _aimLine.Add(_cannon.transform.position);
     }
 
     void ContinueDrag(Vector3 fingerpos)
