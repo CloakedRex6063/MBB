@@ -1,12 +1,35 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InputManagerMouse : MonoBehaviour
 {
     // Stores location of the finger
-    Vector3 _fingerLoc;
+    private Vector3 _fingerLoc;
     private Vector3 _currentLoc;
     private Vector3 _initialLoc;
+    // Stores camera
     private Camera _camera;
+    // Stores the aim assist line
+    private GameObject _aimAssist;
+    // Stores the cannon
+    private GameObject _cannon;
+    // min finger distance needed to launch balls
+    public float mindis = 0.5f;
+    private LineRenderer _aimLine;
+    public float aimLineLength = 6f;
+
+    private void Awake()
+    {
+        // Find the game object named AimAsset and store it.
+        _aimAssist = GameObject.Find("AimAssist");
+        // Find the game object named Cannon and store it.
+        _cannon = GameObject.Find("Cannon");
+        // Set the aim line reference
+        _aimLine = _aimAssist.GetComponent<LineRenderer>();
+        // Disable it 
+        _aimAssist.SetActive(false);
+    }
 
     // Update is called once per frame
     private void Start()
@@ -40,33 +63,47 @@ public class InputManagerMouse : MonoBehaviour
         // if finger is lifted
         if (Input.GetMouseButtonUp(0))
         {
-            EndDrag();
+            // Set aim assist to inactive
+            _aimAssist.SetActive(false);
+            // if drag distance is more than required min distance then launch the balls
+            if ((_initialLoc - _currentLoc).magnitude >= mindis)
+            {
+                EndDrag();
+            }
         }
         
         void StartDrag(Vector3 fingerpos)
         {
             // set initial location to the touch location
-            _initialLoc = _fingerLoc;
+            _initialLoc = fingerpos;
             
             // make the aim line visible and set the starting position of aimline to cannons position
         }
 
         void ContinueDrag(Vector3 fingerpos)
         {
-            _currentLoc = _fingerLoc;
-            // if the finger does not travel the min distance from the starting point, we cancel the input
-            // if the finger does travel?
             // Start storing the current location of the finger in a new variable
-            // Calculate the direction and magnitude of the vector from start position to end position
-            // Clamp the vertical component of the direction vector
-            // Set the end point of the aim line 
+            _currentLoc = fingerpos;
+        
+            // Make the aimline visible
+            _aimAssist.SetActive(true);
+            _aimAssist.transform.position = _cannon.transform.position;
+            _aimLine.SetPosition(1,new Vector3(0f,aimLineLength,0f));
+
+            // Store the difference between starting and end drag position
+            Vector2 diff = _initialLoc-_currentLoc;
+            diff.y = Mathf.Max(0.25f, _initialLoc.y - _currentLoc.y);
+            // Get tan inverse of the difference between the drag positions and convert it into degrees
+            float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
+            // Rotate the aim line
+            _aimAssist.transform.rotation = Quaternion.Euler(0f,0f,-angle);
         }
 
         void EndDrag()
         {
-            // remove the aimline
             // Normalise the direction vector
             //Shoot the ball
+            
         }
 
     }
