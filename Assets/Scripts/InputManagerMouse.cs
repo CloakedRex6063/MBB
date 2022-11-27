@@ -91,12 +91,12 @@ public class InputManagerMouse : MonoBehaviour
             _aimLine.SetPosition(1,new Vector3(0f,aimLineLength,0f));
 
             // Store the difference between starting and end drag position
-            Vector2 diff = _initialLoc-_currentLoc;
+            Vector2 diff = _currentLoc-_initialLoc;
             diff.y = Mathf.Max(0.25f, _initialLoc.y - _currentLoc.y);
             // Get tan inverse of the difference between the drag positions and convert it into degrees
             float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
             // Rotate the aim line
-            _aimAssist.transform.rotation = Quaternion.Euler(0f,0f,-angle);
+            _aimAssist.transform.rotation = Quaternion.Euler(0f,0f,angle);
         }
 
         void EndDrag()
