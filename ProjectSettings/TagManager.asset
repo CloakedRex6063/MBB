@@ -10,12 +10,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cannon
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Walls
+  - Bricks
+  - Balls
   - 
   - 
   - 

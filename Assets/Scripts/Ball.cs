@@ -4,7 +4,7 @@ public class Ball : MonoBehaviour
 {
     private GameManager _gm;
     private Cannon _cannon;
-    private BottomLine _bl;
+    public Transform _bl;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour
 
         // Find the game manager and store a reference to it
         _gm = FindObjectOfType<GameManager>();
+        
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class Ball : MonoBehaviour
         {
             // set the cannon's x axis using the ball's x axis position
             _cannon.BallRemoved(transform.position);
+            Destroy(gameObject);
         }
     }
 }

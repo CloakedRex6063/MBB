@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class Cam : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,5 +11,4 @@ public class Cam : MonoBehaviour
             main.orthographicSize = 9.6f * ((9f / 16f) / main.aspect);
         }
     }
-    
 }

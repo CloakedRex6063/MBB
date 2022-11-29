@@ -30,14 +30,13 @@ public class Brick : MonoBehaviour
     {
         // Decrease hp
         hp--;
-        
         // if hp is now 0 or below 
         if (hp <= 0)
         {
             // decrease the brick count
             _gm.DecreaseBrickCount();
             // destroy the brick
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

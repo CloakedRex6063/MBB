@@ -1,10 +1,12 @@
 using UnityEngine;
 
-
 public class Cannon : MonoBehaviour
 {
     // Stores the aim assist line
     public GameObject aimLineGo;
+    public float speed = 10f;
+    public GameObject ball;
+    private GameManager _gm;
     
     // Balls for the current round
     private int _ballcount;
@@ -13,12 +15,7 @@ public class Cannon : MonoBehaviour
     {
         // Make aim line disappear
         aimLineGo.SetActive(false);
-    }
-    
-    // set cannon location
-    public void BallRemoved(Vector3 position)
-    {
-        transform.position = position;
+        _gm = FindObjectOfType<GameManager>();
     }
 
     // when mouse button is released
@@ -26,6 +23,7 @@ public class Cannon : MonoBehaviour
     {
         // Make aim line disappear
         aimLineGo.SetActive(false);
+        Shoot();
     }
 
     // when mouse button is pressed
@@ -52,5 +50,18 @@ public class Cannon : MonoBehaviour
     public void IncreaseBallCount()
     {
         _ballcount++;
+    }
+
+    public void Shoot()
+    {
+        GameObject createdball = Instantiate(ball,transform.position,Quaternion.identity);
+        createdball.GetComponent<Rigidbody2D>().AddForce(transform.up * speed,ForceMode2D.Impulse);
+        _gm.ChangeState(GameManager.GameState.Action);
+    }
+
+    public void BallRemoved(Vector3 transformPosition)
+    {
+        transform.position = transformPosition;
+        _gm.ChangeState(GameManager.GameState.Prep);
     }
 }

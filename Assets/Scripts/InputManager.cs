@@ -53,7 +53,6 @@ public class InputManager : MonoBehaviour
         // if finger is lifted
         if (Input.GetMouseButtonUp(0))
         {
-            _cannon.DoOnButtonUp();
             // if drag distance is more than required min distance then launch the balls
             if ((_initialLoc - _currentLoc).magnitude >= mindis)
             {
@@ -72,7 +71,6 @@ public class InputManager : MonoBehaviour
         {
             // Start storing the current location of the finger in a new variable
             _currentLoc = fingerpos;
-
             // Store the difference between starting and end drag position
             Vector2 diff = _initialLoc-_currentLoc;
             diff.y = Mathf.Max(0.25f, _initialLoc.y - _currentLoc.y);
@@ -83,8 +81,7 @@ public class InputManager : MonoBehaviour
 
         void EndDrag()
         {
-            // Normalise the direction vector
-            //Shoot the ball
+            _cannon.DoOnButtonUp();
         }
     }
 }
