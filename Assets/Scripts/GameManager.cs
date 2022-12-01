@@ -1,11 +1,14 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private int _brickcount;
-
+    public float _startTime = 3;
     public enum GameState
     {
+        Start,
         Prep,
         Wait,
         Action,
@@ -19,38 +22,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Make sure game state default state is preparation
-        gameStates = GameState.Prep;
         _inputManager = GetComponent<InputManager>();
+        // Make sure game state default state is preparation
+        ChangeState(GameState.Start);
     }
 
-    private void Update()
+    private void Start()
     {
-        switch (gameStates)
-        {
-            case GameState.Prep:
-                if (!_inputManager.enabled)
-                {
-                    _inputManager.enabled = true;
-                }
-                break;
-            case GameState.Wait:
-                break;
-            case GameState.Action:
-                if (_inputManager.enabled)
-                {
-                    _inputManager.enabled = false;
-                }
-                break;
-            case GameState.LevelVictory:
-                break;
-            case GameState.LevelDefeat:
-                break;
-            case GameState.GameVictory:
-                break;
-            default:
-                break;
-        }
+        StartCoroutine(Timer());
     }
 
     // increase number of bricks
@@ -68,5 +47,32 @@ public class GameManager : MonoBehaviour
     public void ChangeState(GameState gameState)
     {
         gameStates = gameState;
+        switch (gameStates)
+        {
+            case GameState.Start:
+                _inputManager.ToggleInputManager(false);
+                break;
+            case GameState.Prep:
+                _inputManager.ToggleInputManager(true);
+                break;
+            case GameState.Wait:
+                break;
+            case GameState.Action:
+                _inputManager.ToggleInputManager(false);
+                break;
+            case GameState.LevelVictory:
+                break;
+            case GameState.LevelDefeat:
+                break;
+            case GameState.GameVictory:
+                break;
+        }
     }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(_startTime);
+        ChangeState(GameState.Prep);
+    }
+    
 }

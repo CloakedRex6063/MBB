@@ -58,36 +58,42 @@ public class InputManager : MonoBehaviour
             // if drag distance is more than required min distance then launch the balls
             if ((_initialLoc - _currentLoc).magnitude >= mindis)
             {
-                // End Drag 
+                // End Drag z
                 EndDrag();
             }
         }
-        
-        void StartDrag(Vector3 fingerpos)
-        {
-            _cannon.DoOnButtonDown();
-            // set initial location to the touch location
-            _initialLoc = fingerpos;
-        }
+    }
+    
+    void StartDrag(Vector3 fingerpos)
+    {
+        _cannon.DoOnButtonDown();
+        // set initial location to the touch location
+        _initialLoc = fingerpos;
+    }
 
-        void ContinueDrag(Vector3 fingerpos)
-        {
-            // Start storing the current location of the finger in a new variable
-            _currentLoc = fingerpos;
-            // Store the difference between starting and end drag position
-            Vector2 diff = _initialLoc-_currentLoc;
-            diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
-            // Get tan inverse of the difference between the drag positions and convert it into degrees
-            float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
-            _cannon.DoOnButtonHold(-angle);
-        }
+    void ContinueDrag(Vector3 fingerpos)
+    {
+        // Start storing the current location of the finger in a new variable
+        _currentLoc = fingerpos;
+        // Store the difference between starting and end drag position
+        Vector2 diff = _initialLoc-_currentLoc;
+        diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
+        // Get tan inverse of the difference between the drag positions and convert it into degrees
+        float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
+        _cannon.DoOnButtonHold(-angle);
+    }
 
-        void EndDrag()
-        {
-            // Shoot the balls
-            _cannon.Shoot();
-            // Change the game state to action 
-            _gm.ChangeState(GameManager.GameState.Action);
-        }
+    void EndDrag()
+    {
+        // Shoot the balls
+        StartCoroutine(_cannon.LoopShoot());
+        // Change the game state to action 
+        _gm.ChangeState(GameManager.GameState.Action);
+    }
+
+    // Change if the input manager is enabled or not
+    public void ToggleInputManager(bool Toggle)
+    {
+        enabled = Toggle;
     }
 }

@@ -1,15 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Cannon : MonoBehaviour
 {
     // Stores the aim assist line
     public GameObject aimLineGo;
-    public float speed = 10f;
+    public float ballspeed = 10f;
+    public float shootspeed = 0.1f;
     public GameObject ball;
     private GameManager _gm;
     
     // Balls for the current round
-    private int _ballcount;
+    public int _ballcount = 10;
     
     void Awake()
     {
@@ -54,8 +56,7 @@ public class Cannon : MonoBehaviour
     public void Shoot()
     {
         GameObject createdball = Instantiate(ball,transform.position,Quaternion.identity);
-        createdball.GetComponent<Rigidbody2D>().AddForce(transform.up * speed,ForceMode2D.Impulse);
-        
+        createdball.GetComponent<Rigidbody2D>().AddForce(transform.up * ballspeed,ForceMode2D.Impulse);
     }
 
     public void BallRemoved(Vector3 transformPosition)
@@ -63,5 +64,14 @@ public class Cannon : MonoBehaviour
         transform.position = transformPosition;
         transform.rotation = Quaternion.identity;
         _gm.ChangeState(GameManager.GameState.Prep);
+    }
+
+    public IEnumerator LoopShoot()
+    { 
+        for (int i = 0; i < _ballcount; i++)
+        {
+            yield return new WaitForSeconds(shootspeed);
+            Shoot();
+        }
     }
 }
