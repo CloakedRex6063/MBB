@@ -23,7 +23,6 @@ public class Cannon : MonoBehaviour
     {
         // Make aim line disappear
         aimLineGo.SetActive(false);
-        Shoot();
     }
 
     // when mouse button is pressed
@@ -56,12 +55,13 @@ public class Cannon : MonoBehaviour
     {
         GameObject createdball = Instantiate(ball,transform.position,Quaternion.identity);
         createdball.GetComponent<Rigidbody2D>().AddForce(transform.up * speed,ForceMode2D.Impulse);
-        _gm.ChangeState(GameManager.GameState.Action);
+        
     }
 
     public void BallRemoved(Vector3 transformPosition)
     {
         transform.position = transformPosition;
+        transform.rotation = Quaternion.identity;
         _gm.ChangeState(GameManager.GameState.Prep);
     }
 }

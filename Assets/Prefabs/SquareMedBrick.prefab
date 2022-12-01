@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9218123191404420967}
   - component: {fileID: -5085385578637896103}
   m_Layer: 0
-  m_Name: SquareMiddleBrick
+  m_Name: SquareMedBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdd9fc3e6338f74daf57a1141f32708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 20
 --- !u!61 &-5085385578637896103
 BoxCollider2D:
   m_ObjectHideFlags: 0

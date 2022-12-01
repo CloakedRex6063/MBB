@@ -4,16 +4,16 @@ public class Ball : MonoBehaviour
 {
     private GameManager _gm;
     private Cannon _cannon;
-    public Transform _bl;
+    private BottomLine _bl;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Find the game manager and store a reference to it
         _cannon = FindObjectOfType<Cannon>();
 
         // Find the game manager and store a reference to it
-        _gm = FindObjectOfType<GameManager>();
+        _bl = FindObjectOfType<BottomLine>();
         
     }
 
