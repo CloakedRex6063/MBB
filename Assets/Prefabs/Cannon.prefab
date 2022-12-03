@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimLineGo: {fileID: 3407014232511828058}
-  speed: 10
+  ballspeed: 10
+  shootspeed: 0.1
   ball: {fileID: 984975175092741360, guid: e952b01930529634b9b1e0aa334af96b, type: 3}
+  _ballcount: 10
 --- !u!1 &3407014232511828058
 GameObject:
   m_ObjectHideFlags: 0

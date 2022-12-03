@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private int _brickcount;
+    private int _ballcount;
     public float _startTime = 3;
     public enum GameState
     {
@@ -35,14 +36,37 @@ public class GameManager : MonoBehaviour
     // increase number of bricks
     public void IncreaseBrickCount()
     {
-        
+        _brickcount++;
     }
 
     // decrease number of bricks
     public void DecreaseBrickCount()
     {
-        
+        _brickcount--;
     }
+
+    public int GetBrickCount()
+    {
+        return _brickcount;
+    }
+    
+    public int GetBallCount()
+    {
+        return _ballcount;
+    }
+    
+    // increase number of bricks
+    public void IncreaseBallCount()
+    {
+        _ballcount++;
+    }
+
+    // decrease number of bricks
+    public void DecreaseBallCount()
+    {
+        _ballcount--;
+    }
+    
 
     public void ChangeState(GameState gameState)
     {

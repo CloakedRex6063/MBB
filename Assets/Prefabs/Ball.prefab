@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7630815217593900282}
   - component: {fileID: -640980322979860473}
   - component: {fileID: 8742803586614057754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71629020f0a5b743a430b1a608d8061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bl: {fileID: 0}
 --- !u!58 &8742803586614057754
 CircleCollider2D:
   m_ObjectHideFlags: 0

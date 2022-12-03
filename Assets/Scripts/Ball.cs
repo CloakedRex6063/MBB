@@ -14,7 +14,9 @@ public class Ball : MonoBehaviour
 
         // Find the game manager and store a reference to it
         _bl = FindObjectOfType<BottomLine>();
-        
+
+        _gm = FindObjectOfType<GameManager>();
+        _gm.IncreaseBallCount();
     }
 
     // Update is called once per frame
@@ -24,8 +26,9 @@ public class Ball : MonoBehaviour
         if (transform.position.y < _bl.transform.position.y)
         {
             // set the cannon's x axis using the ball's x axis position
-            _cannon.BallRemoved(transform.position);
+            _cannon.BallRemoved(new Vector3(transform.position.x,_cannon.transform.position.y,0));
             Destroy(gameObject);
+            _gm.DecreaseBallCount();
         }
     }
 }

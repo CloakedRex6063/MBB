@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     private GameManager _gm;
     // min finger distance needed to launch balls
     public float mindis = 0.5f;
+    private bool _dragStart;
 
     public void Awake()
     {
@@ -66,6 +67,7 @@ public class InputManager : MonoBehaviour
     
     void StartDrag(Vector3 fingerpos)
     {
+        _dragStart = true;
         _cannon.DoOnButtonDown();
         // set initial location to the touch location
         _initialLoc = fingerpos;
@@ -73,14 +75,17 @@ public class InputManager : MonoBehaviour
 
     void ContinueDrag(Vector3 fingerpos)
     {
-        // Start storing the current location of the finger in a new variable
-        _currentLoc = fingerpos;
-        // Store the difference between starting and end drag position
-        Vector2 diff = _initialLoc-_currentLoc;
-        diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
-        // Get tan inverse of the difference between the drag positions and convert it into degrees
-        float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
-        _cannon.DoOnButtonHold(-angle);
+        if (_dragStart == true)
+        {
+            // Start storing the current location of the finger in a new variable
+            _currentLoc = fingerpos;
+            // Store the difference between starting and end drag position
+            Vector2 diff = _initialLoc-_currentLoc;
+            diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
+            // Get tan inverse of the difference between the drag positions and convert it into degrees
+            float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
+            _cannon.DoOnButtonHold(-angle);
+        }
     }
 
     void EndDrag()
@@ -89,6 +94,7 @@ public class InputManager : MonoBehaviour
         StartCoroutine(_cannon.LoopShoot());
         // Change the game state to action 
         _gm.ChangeState(GameManager.GameState.Action);
+        _dragStart = false;
     }
 
     // Change if the input manager is enabled or not

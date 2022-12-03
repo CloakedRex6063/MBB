@@ -30,13 +30,14 @@ public class Cannon : MonoBehaviour
     // when mouse button is pressed
     public void DoOnButtonDown()
     {
-        // Make aim line disappear
-        aimLineGo.SetActive(true);
+        
     }
 
     // when mouse button is held down
     public void DoOnButtonHold(float angle)
     {
+        // Make aim line disappear
+        aimLineGo.SetActive(true);
         // Rotate the aim line
         transform.rotation = Quaternion.Euler(0f,0f,angle);
     }
@@ -61,17 +62,24 @@ public class Cannon : MonoBehaviour
 
     public void BallRemoved(Vector3 transformPosition)
     {
-        transform.position = transformPosition;
-        transform.rotation = Quaternion.identity;
-        _gm.ChangeState(GameManager.GameState.Prep);
+        if (_gm.GetBallCount() == _ballcount)
+        {
+            var transform1 = transform;
+            transform1.position = transformPosition;
+            transform1.rotation = Quaternion.identity;
+        }
+        else if (_gm.GetBallCount() == 1)
+        {
+            _gm.ChangeState(GameManager.GameState.Prep);
+        }
     }
 
     public IEnumerator LoopShoot()
     { 
         for (int i = 0; i < _ballcount; i++)
         {
-            yield return new WaitForSeconds(shootspeed);
             Shoot();
+            yield return new WaitForSeconds(shootspeed);
         }
     }
 }
