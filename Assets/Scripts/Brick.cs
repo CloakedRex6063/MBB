@@ -1,17 +1,24 @@
 using Managers;
+using TMPro;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
     public int hp;
     private GameManager _gm;
+    private TextMeshPro _tmp;
     public void Start()
     {
         // Find the game manager and store a reference to it
         _gm = FindObjectOfType<GameManager>();
-        
+
+        _tmp = GetComponentInChildren<TextMeshPro>();
         // Each brick is added to the game manager's brick count
         _gm.IncreaseBrickCount();
+        if (_tmp)
+        {
+            _tmp.text = hp.ToString();   
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -30,6 +37,10 @@ public class Brick : MonoBehaviour
     {
         // Decrease hp
         hp--;
+        if (_tmp)
+        { 
+            _tmp.text = hp.ToString();   
+        }
         // if hp is now 0 or below 
         if (hp <= 0)
         {
