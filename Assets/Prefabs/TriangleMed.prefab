@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9218123191404420967}
   - component: {fileID: -1267205014310464892}
   m_Layer: 0
-  m_Name: TriangleUnBreakable
+  m_Name: TriangleMed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 550819685
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48afbb6c034b35c4ca60b3b70926bbbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2691a494f6e52a64dbcfc125a4c008b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdd9fc3e6338f74daf57a1141f32708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 50
 --- !u!60 &-1267205014310464892
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.09, y: 4.09}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

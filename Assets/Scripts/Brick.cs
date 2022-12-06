@@ -1,10 +1,11 @@
+using Managers;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
     public int hp;
+    public bool nuke;
     private GameManager _gm;
-
     public void Start()
     {
         // Find the game manager and store a reference to it

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1871894426356840889}
   - component: {fileID: 6928419935221575447}
   - component: {fileID: 784834553921736305}
+  - component: {fileID: 7671660181910103464}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -58,5 +59,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaeef68b436d3d498d6c841b5c101b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startTime: 1
+  MaxRounds: 10
+  currentRounds: 0
+  startTime: 1
   gameStates: 0
+--- !u!114 &7671660181910103464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871894426356840839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7723d5a493f42449db183a77f3c99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryPanelGo: {fileID: 0}
+  defeatPanelGo: {fileID: 0}
+  recallButton: {fileID: 0}

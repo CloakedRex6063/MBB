@@ -75,7 +75,7 @@ Material:
     - _RepeatCount: 100
     - _Sharpness: 100
     - _SmoothnessTextureChannel: 0
-    - _Spacing: 5
+    - _Spacing: 3.7
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _Thickness: 0.6

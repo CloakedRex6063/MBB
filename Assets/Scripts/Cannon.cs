@@ -1,5 +1,7 @@
 using System.Collections;
+using Managers;
 using UnityEngine;
+
 
 public class Cannon : MonoBehaviour
 {
@@ -9,9 +11,10 @@ public class Cannon : MonoBehaviour
     public float shootspeed = 0.1f;
     public GameObject ball;
     private GameManager _gm;
-    
+
     // Balls for the current round
-    public int _ballcount = 10;
+    public int ballcount = 10;
+    public int removedballs;
     
     void Awake()
     {
@@ -45,16 +48,10 @@ public class Cannon : MonoBehaviour
     // Get the number of balls for the round
     public int GetBallCount()
     {
-        return _ballcount;
-    }
-    
-    // Increase the number of the balls
-    public void IncreaseBallCount()
-    {
-        _ballcount++;
+        return ballcount;
     }
 
-    public void Shoot()
+    private void Shoot()
     {
         GameObject createdball = Instantiate(ball,transform.position,Quaternion.identity);
         createdball.GetComponent<Rigidbody2D>().AddForce(transform.up * ballspeed,ForceMode2D.Impulse);
@@ -62,24 +59,42 @@ public class Cannon : MonoBehaviour
 
     public void BallRemoved(Vector3 transformPosition)
     {
-        if (_gm.GetBallCount() == _ballcount)
+        removedballs++;
+        if (removedballs == 1)
         {
-            var transform1 = transform;
-            transform1.position = transformPosition;
-            transform1.rotation = Quaternion.identity;
+            transform.position = transformPosition;
         }
-        else if (_gm.GetBallCount() == 1)
+        else if (removedballs == ballcount)
         {
             _gm.ChangeState(GameManager.GameState.Prep);
+            removedballs = 0;
         }
     }
 
     public IEnumerator LoopShoot()
     { 
-        for (int i = 0; i < _ballcount; i++)
+        for (int i = 0; i < ballcount; i++)
         {
             Shoot();
             yield return new WaitForSeconds(shootspeed);
         }
+        yield return new WaitForSeconds(0.5f);
+        _gm.ChangeState(GameManager.GameState.Action);
+        ResetCannonAngle();
+    }
+
+    private void ResetCannonAngle()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
+    public void IncreaseBallCount()
+    {
+        ballcount++;
+    }
+    
+    public void DecreaseBallCount()
+    {
+        ballcount--;
     }
 }
