@@ -23,7 +23,7 @@ public class Ball : MonoBehaviour
         {
             // set the cannon's x axis using the ball's x axis position
             _cannon.BallRemoved(new Vector3(transform.position.x,_cannon.transform.position.y,0));
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

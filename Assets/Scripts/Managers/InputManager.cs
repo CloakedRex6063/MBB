@@ -17,6 +17,7 @@ namespace Managers
         // min finger distance needed to launch balls
         public float mindis = 0.5f;
         private bool _dragStart;
+        private float sensi = 0.5f;
 
         public void Awake()
         {
@@ -70,7 +71,6 @@ namespace Managers
         void StartDrag(Vector3 fingerpos)
         {
             _dragStart = true;
-            _cannon.DoOnButtonDown();
             // set initial location to the touch location
             _initialLoc = fingerpos;
         }
@@ -82,11 +82,14 @@ namespace Managers
                 // Start storing the current location of the finger in a new variable
                 _currentLoc = fingerpos;
                 // Store the difference between starting and end drag position
-                Vector2 diff = _initialLoc-_currentLoc;
+                Vector2 diff = sensi * (_initialLoc-_currentLoc);
                 diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
                 // Get tan inverse of the difference between the drag positions and convert it into degrees
                 float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
-                _cannon.DoOnButtonHold(-angle);
+                if ((_initialLoc - _currentLoc).magnitude >= mindis)
+                {
+                    _cannon.DoOnButtonHold(-angle);   
+                }
             }
         }
 

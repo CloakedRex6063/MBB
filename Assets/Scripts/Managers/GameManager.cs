@@ -8,9 +8,6 @@ namespace Managers
         [Header("Rounds")] 
         public int maxRounds = 10;
         public int currentRounds;
-    
-        [Header("Initial")]
-        public float startTime = 3f;
 
         [Header("Game States")]
         public GameState gameStates;
@@ -155,7 +152,8 @@ namespace Managers
 
         IEnumerator StartTimer()
         {
-            yield return new WaitForSeconds(startTime);
+            StartCoroutine(_uiManager.CountDown());
+            yield return new WaitForSeconds(_uiManager.startTime);
             ChangeState(GameState.Prep);
         }
     

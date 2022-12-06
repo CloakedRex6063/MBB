@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace Managers
@@ -7,10 +9,38 @@ namespace Managers
         public GameObject victoryPanelGo;
         public GameObject defeatPanelGo;
         public GameObject recallButton;
+        public GameObject countdownPanelGo;
+        public TextMeshProUGUI countdownText;
+        [Header("Initial")]
+        public float startTime = 3f;
+        private int _countDown;
+
+        private void Awake()
+        {
+            _countDown = 3;
+            countdownText = countdownPanelGo.GetComponentInChildren<TextMeshProUGUI>();
+            countdownPanelGo.SetActive(true);
+        }
 
         public void ToggleGoActive(GameObject gO,bool active)
         {
             gO.SetActive(active);
+        }
+
+        public IEnumerator CountDown()
+        {
+            while (_countDown > 0)
+            {
+                countdownText.text = _countDown.ToString();
+                yield return new WaitForSeconds(startTime/3);
+                _countDown--; 
+            }
+            ToggleGoActive(countdownPanelGo,false);
+        }
+
+        public void DoOnRecallButton()
+        {
+            
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6928419935221575447}
   - component: {fileID: 784834553921736305}
   - component: {fileID: 7671660181910103464}
+  - component: {fileID: 1769829115530455268}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -59,10 +60,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaeef68b436d3d498d6c841b5c101b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxRounds: 10
+  maxRounds: 10
   currentRounds: 0
   startTime: 1
   gameStates: 0
+  brickcount: 0
 --- !u!114 &7671660181910103464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +80,19 @@ MonoBehaviour:
   victoryPanelGo: {fileID: 0}
   defeatPanelGo: {fileID: 0}
   recallButton: {fileID: 0}
+  countdownPanelG0: {fileID: 0}
+  countdownText: {fileID: 0}
+--- !u!114 &1769829115530455268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871894426356840839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c80baad49b34e41b4ace0baaead2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 984975175092741360, guid: e952b01930529634b9b1e0aa334af96b, type: 3}
+  ballcount: 10
