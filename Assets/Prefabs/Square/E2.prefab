@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9218123191404420967}
   - component: {fileID: -5085385578637896103}
   m_Layer: 0
-  m_Name: Nuke
+  m_Name: E2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 550819685
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 660e5deb6ea0b8a4ca167824386db2bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cadb5363d0b0b544583452f052b4afa1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  nuke: 1
 --- !u!61 &-5085385578637896103
 BoxCollider2D:
   m_ObjectHideFlags: 0

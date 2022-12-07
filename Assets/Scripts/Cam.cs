@@ -8,7 +8,7 @@ public class Cam : MonoBehaviour
         var main = Camera.main;
         if (main != null)
         {
-            main.orthographicSize = 9.6f * ((9f / 16f) / main.aspect);
+            main.orthographicSize = 1920/(100f *2f) * ((9f / 16f) / main.aspect);
         }
     }
 }

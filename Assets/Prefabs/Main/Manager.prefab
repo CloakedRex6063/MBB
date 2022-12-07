@@ -62,7 +62,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRounds: 10
   currentRounds: 0
-  startTime: 1
   gameStates: 0
   brickcount: 0
 --- !u!114 &7671660181910103464
@@ -80,8 +79,9 @@ MonoBehaviour:
   victoryPanelGo: {fileID: 0}
   defeatPanelGo: {fileID: 0}
   recallButton: {fileID: 0}
-  countdownPanelG0: {fileID: 0}
+  countdownPanelGo: {fileID: 0}
   countdownText: {fileID: 0}
+  startTime: 2
 --- !u!114 &1769829115530455268
 MonoBehaviour:
   m_ObjectHideFlags: 0
