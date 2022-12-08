@@ -73,7 +73,7 @@ namespace Managers
             return maxRounds;
         }
 
-        void LevelWin()
+        private void LevelWin()
         {
             if (gameStates != GameState.LevelVictory && gameStates != GameState.LevelDefeat)
             {

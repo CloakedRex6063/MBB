@@ -1695,6 +1695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 494898430946793503, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: ballcount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 542325545446290480, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4765328183463912006}
   - component: {fileID: 8119234637854214775}
   - component: {fileID: 7451832356597776483}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TriangleInvincibleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

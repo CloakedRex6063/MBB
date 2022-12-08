@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2803655380088118351}
   - component: {fileID: 6978080255969646335}
   - component: {fileID: 1521012209287577539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4284809221
+  m_fontColor: {r: 0.020199846, g: 0, b: 0.3962264, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 8119234637854214775}
   - component: {fileID: 9218123191404420967}
   - component: {fileID: -5085385578637896103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SquareMedBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ SpriteRenderer:
   m_SortingLayerID: 550819685
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4623cac747ac5814797dbdebdb2b183a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fbabbf993abab748a954631b39dad64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -268,10 +268,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6953198218928361306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdd9fc3e6338f74daf57a1141f32708, type: 3}
+  m_Script: {fileID: 11500000, guid: a7f3c0ea091c1d345bac107aaed81f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  maxHp: 50
+  fullHpSprite: {fileID: 21300000, guid: 0fbabbf993abab748a954631b39dad64, type: 3}
+  halfHpSprite: {fileID: 0}
 --- !u!61 &-5085385578637896103
 BoxCollider2D:
   m_ObjectHideFlags: 0
