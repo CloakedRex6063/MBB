@@ -25,7 +25,7 @@ public class Cannon : MonoBehaviour
     public int removedballs;
     private int shotballs;
 
-    private float startingpercent = 0.25f;
+    public float startingpercent = 0.25f;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class Cannon : MonoBehaviour
     
     private void Start()
     {
-        float pos = startingpercent * Screen.width/ 1080;
+        float pos = startingpercent * Screen.width/1080;
         float random = Random.Range(-pos, pos);
         transform.position = new Vector3(random, transform.position.y, 0);
     }
@@ -110,10 +110,10 @@ public class Cannon : MonoBehaviour
             // wait for the interval before shooting again
             yield return new WaitForSeconds(shootspeed);
         }
+        // wait before resetting the cannon angle
+        yield return new WaitForSeconds(0.2f);
         // Change state of the game state to action so input manager gets disabled
         _gm.ChangeState(GameManager.GameState.Action);
-        // wait before resetting the cannon angle
-        yield return new WaitForSeconds(0.5f);
         ResetCannonAngle();
     }
 
