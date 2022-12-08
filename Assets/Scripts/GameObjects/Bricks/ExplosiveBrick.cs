@@ -15,6 +15,7 @@ namespace GameObjects.Bricks
             {
                 exploded = true;
                 Explode();
+                base.Die();
             }
         }
 

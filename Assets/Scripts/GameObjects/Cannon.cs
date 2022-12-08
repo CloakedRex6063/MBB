@@ -71,15 +71,15 @@ namespace GameObjects
 
         public void BallRemoved(Vector3 transformPosition)
         {
-            _pm.GetActiveBallCount();
+            
             // check if first ball is removed
-            if (_pm.GetBallCount() == 1)
+            if (_pm.GetActiveBallCount() == GetBallCount())
             {
                 // store the ball out position
                 _ballposition = transformPosition;
             }
             // check if all balls are removed
-            else if (_pm.GetActiveBallCount() == GetBallCount())
+            if (_pm.GetActiveBallCount() == 1)
             {
                 // change to prep state
                 _gm.ChangeState(GameManager.GameState.Prep);
