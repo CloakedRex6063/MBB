@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 984975175092741360, guid: e952b01930529634b9b1e0aa334af96b, type: 3}
-  ballcount: 10
+  ballcount: 5

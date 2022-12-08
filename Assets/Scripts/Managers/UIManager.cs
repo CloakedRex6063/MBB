@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,15 +12,26 @@ namespace Managers
         public GameObject recallButton;
         public GameObject countdownPanelGo;
         public TextMeshProUGUI countdownText;
+        public PoolManager _pm;
+        
         [Header("Initial")]
         public float startTime = 3f;
         private int _countDown;
+        public GameManager _gm;
 
         private void Awake()
         {
+            
             _countDown = 3;
             countdownText = countdownPanelGo.GetComponentInChildren<TextMeshProUGUI>();
             countdownPanelGo.SetActive(true);
+            
+        }
+
+        private void Start()
+        {
+            _gm = gameObject.GetComponent<GameManager>();
+            _pm = gameObject.GetComponent<PoolManager>();
         }
 
         public void ToggleGoActive(GameObject gO,bool active)
@@ -36,11 +48,6 @@ namespace Managers
                 _countDown--; 
             }
             ToggleGoActive(countdownPanelGo,false);
-        }
-
-        public void DoOnRecallButton()
-        {
-            
         }
     }
 }

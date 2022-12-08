@@ -1,26 +1,29 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+namespace GameObjects
 {
-    private Cannon _cannon;
-    // Start is called before the first frame update
-    void Start()
+    public class Pickup : MonoBehaviour
     {
-        // Store the reference to the cannon
-        _cannon = FindObjectOfType<Cannon>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        // Returns the ball component of the colliding object
-        Ball colBall = col.gameObject.GetComponent<Ball>();
-        // if there is a ball component
-        if (colBall)
+        private Cannon _cannon;
+        // Start is called before the first frame update
+        void Start()
         {
-            // increase the round ball count
-            _cannon.IncreaseBallCount();
-            // destroy the pickup
-            Destroy(this);
+            // Store the reference to the cannon
+            _cannon = FindObjectOfType<Cannon>();
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            // Returns the ball component of the colliding object
+            Ball colBall = col.gameObject.GetComponent<Ball>();
+            // if there is a ball component
+            if (colBall)
+            {
+                // increase the round ball count
+                _cannon.DoOnPickup();
+                // destroy the pickup
+                Destroy(gameObject);
+            }
         }
     }
 }

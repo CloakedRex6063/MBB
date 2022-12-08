@@ -1,4 +1,5 @@
 using System.Collections;
+using GameObjects;
 using UnityEngine;
 
 namespace Managers
@@ -77,30 +78,18 @@ namespace Managers
         {
             if (gameStates != GameState.LevelVictory && gameStates != GameState.LevelDefeat)
             {
-                if (brickcount == 0)
+                if (brickcount < 0)
                 { 
                     ChangeState(GameState.LevelVictory);
                 }
 
-                if (brickcount != 0 && currentRounds > maxRounds)
+                if (brickcount > 0 && currentRounds > maxRounds)
                 {
                     ChangeState(GameState.LevelDefeat);
                 }
             }
         }
-    
-        // increase number of bricks
-        public void IncreaseBallCount()
-        {
-            _cannon.IncreaseBallCount();
-        }
 
-        // decrease number of balls
-        public void DecreaseBallCount()
-        {
-            _cannon.DecreaseBallCount();
-        }
-    
         // increase number of bricks
         public void IncreaseRoundCount()
         {

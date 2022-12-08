@@ -231,6 +231,34 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5af19945039bb41449d5f9c9d5b0714a, type: 3}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7671660181910103464, guid: d72710687a68d1b41943d0ad3cb7c68f, type: 3}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoOnRecallButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Managers.UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3991494990687279424, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3
@@ -239,7 +267,8 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2184678700804627217}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1527813954, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
 --- !u!4 &1922890524705294942 stripped
 Transform:
@@ -251,6 +280,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4543349093245068342, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
   m_PrefabInstance: {fileID: 2184678700836422878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &933555970538182093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404005593502228712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da5839dca304514998f46e9caa8aa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2184678700844151035
 PrefabInstance:
   m_ObjectHideFlags: 0
