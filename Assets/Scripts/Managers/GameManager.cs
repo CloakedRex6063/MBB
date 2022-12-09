@@ -1,6 +1,7 @@
 using System.Collections;
 using GameObjects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -129,7 +130,17 @@ namespace Managers
                     break;
                 case GameState.LevelVictory:
                     _inputManager.ToggleInputManager(false);
-                    _uiManager.ToggleGoActive(_uiManager.victoryPanelGo,true);
+                    if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings - 1)
+                    {
+                        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1, LoadSceneMode.Single);
+                    }
+                    else
+                    {
+                        if (!_uiManager.victoryPanelGo.activeInHierarchy)
+                        {
+                            _uiManager.ToggleGoActive(_uiManager.victoryPanelGo,true);
+                        }
+                    }
                     break;
                 case GameState.LevelDefeat:
                     _inputManager.ToggleInputManager(false);

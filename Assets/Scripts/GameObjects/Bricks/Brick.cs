@@ -25,6 +25,7 @@ namespace GameObjects.Bricks
         private GameManager _gm;
         // Stores the text component to show hp of the brick
         private TextMeshPro _tmp;
+        private bool died;
 
         protected virtual void Awake()
         {
@@ -67,6 +68,11 @@ namespace GameObjects.Bricks
                 // ReSharper disable once SpecifyACultureInStringConversionExplicitly
                 _tmp.text = _currentHp.ToString();   
             }
+            else
+            {
+                _tmp.text = "0";   
+            }
+            
 
             if (_currentHp <= (maxHp*0.5f) && !_spriteChange)
             {
@@ -77,7 +83,11 @@ namespace GameObjects.Bricks
             // if hp is now 0 or below 
             if (_currentHp <= 0)
             {
-                Die();
+                if (!died)
+                {
+                    Die();
+                    died = true;
+                }
             }
         }
 

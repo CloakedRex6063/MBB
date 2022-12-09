@@ -18,12 +18,16 @@ namespace Managers
         // min finger distance needed to launch balls
         public float mindis = 0.5f;
         private bool _dragStart;
-        private float sensi = 0.5f;
+        private float sensi = 1f;
+        FingerFeedback fingerFeedback;
 
         public void Awake()
         {
             _cannon = FindObjectOfType<Cannon>();
             _gm = GetComponent<GameManager>();
+            fingerFeedback = FindObjectOfType<FingerFeedback>();
+
+            fingerFeedback.SetThreshold(mindis);
         }
 
         // Update is called once per frame
@@ -47,12 +51,14 @@ namespace Managers
             if (Input.GetMouseButtonDown(0))
             {
                 StartDrag(_fingerLoc);
+                fingerFeedback.StartDrag(_fingerLoc);
             }
         
             // if finger is held
             if (Input.GetMouseButton(0))
             {
                 ContinueDrag(_fingerLoc);
+                fingerFeedback.Dragging((_fingerLoc));
             }
 
             // if finger is lifted
@@ -60,6 +66,7 @@ namespace Managers
             {
                 // Aim line disappears
                 _cannon.DoOnButtonUp();
+                fingerFeedback.EndDrag();
                 // if drag distance is more than required min distance then launch the balls
                 if ((_initialLoc - _currentLoc).magnitude >= mindis)
                 {

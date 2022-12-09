@@ -25,7 +25,12 @@ namespace GameObjects.Bricks
             Collider2D[] bricks = Physics2D.OverlapCircleAll(transform.position, radius, brickLayer);
             foreach (var t in bricks)
             {
-                t.GetComponent<Brick>().Damage(explosionDamage);
+                if (t != null)
+                {
+                    t.GetComponent<Brick>().Damage(explosionDamage);
+                }
+
+                
             }
         }
     }
