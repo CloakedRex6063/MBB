@@ -1743,6 +1743,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1492313712681844362, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: maxRounds
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2249592461123565303, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
       propertyPath: m_Name
       value: GameBase
