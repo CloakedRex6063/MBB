@@ -303,4 +303,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 50
   fullHpSprite: {fileID: 21300000, guid: efc3b49a35207794f87e5fafbce84816, type: 3}
-  halfHpSprite: {fileID: 0}
+  halfHpSprite: {fileID: 21300000, guid: 1760e8f1d55f5214c97fb1e6d0af1695, type: 3}

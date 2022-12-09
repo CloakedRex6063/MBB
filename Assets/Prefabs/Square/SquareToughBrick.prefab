@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   fullHpSprite: {fileID: 21300000, guid: e984ccc4e6359874b85c1fdee0bea2b6, type: 3}
-  halfHpSprite: {fileID: 0}
+  halfHpSprite: {fileID: 21300000, guid: 60c938ad98e15544a9593a1363b9e49c, type: 3}
 --- !u!61 &-5085385578637896103
 BoxCollider2D:
   m_ObjectHideFlags: 0

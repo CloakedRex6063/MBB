@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 10
   fullHpSprite: {fileID: 21300000, guid: 2691a494f6e52a64dbcfc125a4c008b5, type: 3}
-  halfHpSprite: {fileID: 0}
+  halfHpSprite: {fileID: 21300000, guid: bbd7a93ff7f547f438566a133e05daca, type: 3}
 --- !u!60 &7451832356597776483
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -78,7 +78,7 @@ namespace Managers
         {
             if (gameStates != GameState.LevelVictory && gameStates != GameState.LevelDefeat)
             {
-                if (brickcount < 0)
+                if (brickcount < 1)
                 { 
                     ChangeState(GameState.LevelVictory);
                 }
@@ -114,6 +114,7 @@ namespace Managers
             {
                 case GameState.Start:
                     _inputManager.ToggleInputManager(false);
+                    _uiManager.ToggleGoActive(_uiManager.victoryPanelGo,false);
                     break;
                 case GameState.Prep:
                     currentRounds++;
