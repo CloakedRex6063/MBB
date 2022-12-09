@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class BottomLine : MonoBehaviour
+namespace GameObjects
 {
+    public class BottomLine : MonoBehaviour
+    {
 
+    }
 }

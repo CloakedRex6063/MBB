@@ -1,8 +1,6 @@
-using System;
 using Managers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GameObjects.Bricks
 {
@@ -24,14 +22,14 @@ namespace GameObjects.Bricks
         // Stores the sprite renderer component
         private SpriteRenderer _spriteRenderer;
         // Stores the game manager
-        protected GameManager Gm;
+        private GameManager _gm;
         // Stores the text component to show hp of the brick
         private TextMeshPro _tmp;
 
         protected virtual void Awake()
         {
             // Find the game manager and store a reference to it
-            Gm = FindObjectOfType<GameManager>();
+            _gm = FindObjectOfType<GameManager>();
             _tmp = GetComponentInChildren<TextMeshPro>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
@@ -40,7 +38,7 @@ namespace GameObjects.Bricks
         {
             _currentHp = maxHp;
             // Each brick is added to the game manager's brick count
-            Gm.IncreaseBrickCount();
+            _gm.IncreaseBrickCount();
             _spriteRenderer.sprite = fullHpSprite;
             if (_tmp)
             {
@@ -66,6 +64,7 @@ namespace GameObjects.Bricks
             _currentHp -= damage;
             if (_tmp)
             { 
+                // ReSharper disable once SpecifyACultureInStringConversionExplicitly
                 _tmp.text = _currentHp.ToString();   
             }
 
@@ -85,7 +84,7 @@ namespace GameObjects.Bricks
         protected virtual void Die()
         {
             // decrease the brick count
-            Gm.DecreaseBrickCount();
+            _gm.DecreaseBrickCount();
             // destroy the brick
             Destroy(gameObject);
         }

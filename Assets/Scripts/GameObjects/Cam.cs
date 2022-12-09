@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class Cam : MonoBehaviour
+namespace GameObjects
 {
-    // Start is called before the first frame update
-    void OnEnable()
+    public class Cam : MonoBehaviour
     {
-        var main = Camera.main;
-        if (main != null)
+        // Start is called before the first frame update
+        void OnEnable()
         {
-            main.orthographicSize = 1920/(100f *2f) * ((9f / 16f) / main.aspect);
+            var main = Camera.main;
+            if (main != null)
+            {
+                main.orthographicSize = 1920/(100f *2f) * ((9f / 16f) / main.aspect);
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using Managers;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
+// ReSharper disable Unity.InefficientPropertyAccess
 
 
 namespace GameObjects
@@ -15,6 +16,7 @@ namespace GameObjects
         public TextMeshPro balls;
     
         // Speed of the ball and interval of shooting
+        [Header("Ball")]
         public float ballspeed = 10f;
         public float shootspeed = 0.1f;
     
@@ -23,9 +25,11 @@ namespace GameObjects
         private PoolManager _pm;
     
         // Ball related
-        private Vector3 _ballposition;
+        private Vector3 _ballpos;
 
-        public float startingpercent = 0.25f;
+        // How far the cannon should move in the first randomization
+        public float startmaxpos = 1.5f;
+        public float maxpos = 4.5f;
 
         void Awake()
         {
@@ -37,8 +41,7 @@ namespace GameObjects
     
         private void Start()
         {
-            float pos = startingpercent * Screen.width/1080;
-            float random = Random.Range(-pos, pos);
+            var random = Random.Range(-startmaxpos, startmaxpos);
             transform.position = new Vector3(random, transform.position.y, 0);
         }
 
@@ -76,7 +79,7 @@ namespace GameObjects
             if (_pm.GetActiveBallCount() == GetBallCount())
             {
                 // store the ball out position
-                _ballposition = transformPosition;
+                _ballpos = transformPosition;
             }
             // check if all balls are removed
             if (_pm.GetActiveBallCount() == 1)
@@ -84,7 +87,7 @@ namespace GameObjects
                 // change to prep state
                 _gm.ChangeState(GameManager.GameState.Prep);
                 // move the cannon to the stored ball out position
-                transform.position = new Vector3(_ballposition.x,transform.position.y,transform.position.z);
+                transform.position = _ballpos;
             }
         }
     

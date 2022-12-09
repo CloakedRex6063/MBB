@@ -6,14 +6,14 @@ namespace GameObjects.Bricks
     {
         public float radius;
         public int explosionDamage;
-        private bool exploded;
+        private bool _exploded;
         public LayerMask brickLayer;
 
         protected override void Die()
         {
-            if (!exploded)
+            if (!_exploded)
             {
-                exploded = true;
+                _exploded = true;
                 Explode();
                 base.Die();
             }
@@ -21,8 +21,9 @@ namespace GameObjects.Bricks
 
         void Explode()
         { 
-            Collider2D[] Bricks = Physics2D.OverlapCircleAll(transform.position, radius, brickLayer);
-            foreach (var t in Bricks)
+            // ReSharper disable once Unity.PreferNonAllocApi
+            Collider2D[] bricks = Physics2D.OverlapCircleAll(transform.position, radius, brickLayer);
+            foreach (var t in bricks)
             {
                 t.GetComponent<Brick>().Damage(explosionDamage);
             }
