@@ -11,13 +11,13 @@ namespace Managers
         public GameObject defeatPanelGo;
         public GameObject recallButton;
         public GameObject countdownPanelGo;
-        public TextMeshProUGUI countdownText;
-        public PoolManager _pm;
+        private TextMeshProUGUI countdownText;
+        private PoolManager _pm;
+        private GameManager _gm;
         
         [Header("Initial")]
         public float startTime = 3f;
         private int _countDown;
-        public GameManager _gm;
 
         private void Awake()
         {

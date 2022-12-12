@@ -87,7 +87,7 @@ namespace GameObjects
                 // change to prep state
                 _gm.ChangeState(GameManager.GameState.Prep);
                 // move the cannon to the stored ball out position
-                transform.position = _ballpos;
+                transform.position = new Vector3(_ballpos.x,transform.position.y,0f);
             }
         }
     

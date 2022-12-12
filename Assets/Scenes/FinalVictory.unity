@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952807467490717208, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 952807467490717208, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 952807467490717208, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1825895373455733373, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
+    - target: {fileID: 952807467490717208, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1825895373455733249, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -219,21 +235,17 @@ PrefabInstance:
       value: FinalGameVictory
       objectReference: {fileID: 0}
     - target: {fileID: 1825895374067996276, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
-      propertyPath: m_text
-      value: Thanks Dude
+      propertyPath: m_fontSize
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1825895374067996276, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6645c493fd5d1be4a9f33bac703b9482, type: 2}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1825895374067996276, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 305043781196244942, guid: 6645c493fd5d1be4a9f33bac703b9482, type: 2}
-    - target: {fileID: 1825895374890034762, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 25bc1f0092ccc3f4093295640c09da56, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 228231274886433701, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
