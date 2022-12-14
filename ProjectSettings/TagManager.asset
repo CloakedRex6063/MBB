@@ -43,18 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1639609723
-    locked: 0
-  - name: Line
-    uniqueID: 4162581381
-    locked: 0
   - name: Ball/Brick
     uniqueID: 550819685
     locked: 0
   - name: Cannon
     uniqueID: 2263453515
     locked: 0
+  - name: Line
+    uniqueID: 4162581381
+    locked: 0
   - name: 'vfx '
     uniqueID: 4175758341
+    locked: 0
+  - name: Background
+    uniqueID: 1639609723
     locked: 0
