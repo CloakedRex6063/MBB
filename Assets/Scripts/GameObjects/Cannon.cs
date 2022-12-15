@@ -41,8 +41,8 @@ namespace GameObjects
     
         private void Start()
         {
-            var random = Random.Range(-startmaxpos, startmaxpos);
-            transform.position = new Vector3(random, transform.position.y, 0);
+            float random = Random.Range(-startmaxpos, startmaxpos);
+            transform.position = new Vector3(random, transform.position.y, 0f);
         }
 
         private void Update()
@@ -117,7 +117,7 @@ namespace GameObjects
         }
 
         // Reset the cannon angle to 0
-        private void ResetCannonAngle()
+        public void ResetCannonAngle()
         {
             rotate.rotation = Quaternion.identity;
         }

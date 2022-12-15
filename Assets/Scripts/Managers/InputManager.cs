@@ -16,18 +16,17 @@ namespace Managers
         // Stores game manager reference
         private GameManager _gm;
         // min finger distance needed to launch balls
-        public float mindis = 0.5f;
+        public float mindis = 2f;
         private bool _dragStart;
         private float sensi = 1f;
-        FingerFeedback fingerFeedback;
-
+        FingerFeedback _fingerFeedback;
         public void Awake()
         {
             _cannon = FindObjectOfType<Cannon>();
             _gm = GetComponent<GameManager>();
-            fingerFeedback = FindObjectOfType<FingerFeedback>();
+            _fingerFeedback = FindObjectOfType<FingerFeedback>();
 
-            fingerFeedback.SetThreshold(mindis);
+            _fingerFeedback.SetThreshold(mindis);
         }
 
         // Update is called once per frame
@@ -48,36 +47,29 @@ namespace Managers
             }
         
             // when the finger has just touched the screen
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && _gm.gameStarted)
             {
                 StartDrag(_fingerLoc);
-                fingerFeedback.StartDrag(_fingerLoc);
             }
         
             // if finger is held
             if (Input.GetMouseButton(0))
             {
                 ContinueDrag(_fingerLoc);
-                fingerFeedback.Dragging((_fingerLoc));
             }
 
             // if finger is lifted
             if (Input.GetMouseButtonUp(0))
             {
-                // Aim line disappears
-                _cannon.DoOnButtonUp();
-                fingerFeedback.EndDrag();
-                // if drag distance is more than required min distance then launch the balls
-                if ((_initialLoc - _currentLoc).magnitude >= mindis)
-                {
-                    // End Drag z
-                    EndDrag();
-                }
+                // End Drag 
+                EndDrag();
             }
         }
     
         void StartDrag(Vector3 fingerpos)
         {
+            _fingerFeedback.StartDrag(fingerpos);
+            _fingerFeedback.ToggleWrongInput(false);
             _dragStart = true;
             // set initial location to the touch location
             _initialLoc = fingerpos;
@@ -94,19 +86,33 @@ namespace Managers
                 diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
                 // Get tan inverse of the difference between the drag positions and convert it into degrees
                 float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
-                if ((_initialLoc - _currentLoc).magnitude >= mindis)
+                if (_initialLoc.y - _currentLoc.y > 0 && (_initialLoc-_currentLoc).magnitude > 0)
                 {
-                    _cannon.DoOnButtonHold(-angle);   
+                    _cannon.DoOnButtonHold(-angle);
+                    _fingerFeedback.Dragging(fingerpos);
+                }
+                else if(_initialLoc.y - _currentLoc.y < 0)
+                {
+                    _cannon.ResetCannonAngle();
+                    EndDrag();
+                    _fingerFeedback.ToggleWrongInput(true);
                 }
             }
         }
 
         void EndDrag()
         {
+            _fingerFeedback.EndDrag();
             // Shoot the balls
-            StartCoroutine(_cannon.LoopShoot());
-            // Change the game state to action 
-            _gm.ChangeState(GameManager.GameState.Wait);
+            // if drag distance is more than required min distance then launch the balls
+            if ((_initialLoc - _currentLoc).magnitude >= mindis && _initialLoc.y - _currentLoc.y > 0)
+            {
+                StartCoroutine(_cannon.LoopShoot());
+                // Change the game state to action 
+                _gm.ChangeState(GameManager.GameState.Wait);
+            }
+            // Aim line disappears
+            _cannon.DoOnButtonUp();
             _initialLoc = Vector3.zero;
             _currentLoc = Vector3.zero;
             _dragStart = false;

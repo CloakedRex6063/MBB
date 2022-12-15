@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameObjects.Bricks
 {
@@ -7,7 +9,14 @@ namespace GameObjects.Bricks
         public float radius;
         public int explosionDamage;
         private bool _exploded;
+        public GameObject vfx;
         public LayerMask brickLayer;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            vfx.transform.parent = null;
+        }
 
         protected override void Die()
         {
@@ -18,7 +27,7 @@ namespace GameObjects.Bricks
                 base.Die();
             }
         }
-
+        
         void Explode()
         { 
             // ReSharper disable once Unity.PreferNonAllocApi
@@ -29,9 +38,8 @@ namespace GameObjects.Bricks
                 {
                     t.GetComponent<Brick>().Damage(explosionDamage);
                 }
-
-                
             }
+            vfx.SetActive(true);
         }
     }
 }

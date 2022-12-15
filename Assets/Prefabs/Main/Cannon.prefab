@@ -31,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 3991494990687279424}
   - {fileID: 2112622974896804524}
-  - {fileID: 4135646969552753517}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,8 +51,8 @@ MonoBehaviour:
   balls: {fileID: 8553015402233059377}
   ballspeed: 10
   shootspeed: 0.1
-  removedballs: 0
-  startingpercent: 0.25
+  startmaxpos: 1.5
+  maxpos: 4.5
 --- !u!1 &1697603193579033108
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +65,7 @@ GameObject:
   - component: {fileID: 4396144290518401078}
   - component: {fileID: 6042875706792900818}
   - component: {fileID: 8789656721795394177}
-  - component: {fileID: 1527813954}
+  - component: {fileID: 9097483622898567527}
   m_Layer: 5
   m_Name: RecallCanvas
   m_TagString: Untagged
@@ -156,7 +155,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1527813954
+--- !u!114 &9097483622898567527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1697603193579033108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65210d9c55bbebe489451b2a09f49008, type: 3}
+  m_Script: {fileID: 11500000, guid: 4da5839dca304514998f46e9caa8aa3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2226677407381165502
@@ -198,6 +197,7 @@ Transform:
   m_Children:
   - {fileID: 4737486293220328216}
   - {fileID: 256268666815597699}
+  - {fileID: 4135646969552753517}
   m_Father: {fileID: 359992247140322944}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,7 +272,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -132385915
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 1, z: 0}
@@ -524,9 +524,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2031513781
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fdce776d28086e448a893d773f0fa06f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87ccf2c113587464b83c758c16350a0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -567,7 +567,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359992247140322944}
+  m_Father: {fileID: 2112622974896804524}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -614,7 +614,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2031513781
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8553015402233059377

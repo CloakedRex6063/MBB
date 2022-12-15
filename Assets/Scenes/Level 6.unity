@@ -1294,9 +1294,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBase
       objectReference: {fileID: 0}
+    - target: {fileID: 4702272845230370108, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980596709904395590, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980596709904395590, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18.600182
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024268203842731881, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024268203842731881, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024268203842731881, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024268203842731881, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8642568623696606650, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
       propertyPath: m_text
       value: Level 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642568623696606650, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642568623696606650, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642568623696606650, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642568623696606650, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5840716f420e3442b271bc956c4f1b9, type: 3}

@@ -1,6 +1,7 @@
 using Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameObjects.Bricks
 {
@@ -9,6 +10,9 @@ namespace GameObjects.Bricks
         [Header("HP")]
         public int maxHp;
 
+        [Header("Settings")] 
+        public bool invulnerable;
+        
         [Header("Sprites")] 
         // Sprite used when Hp is above 50%
         public Sprite fullHpSprite;
@@ -39,7 +43,10 @@ namespace GameObjects.Bricks
         {
             _currentHp = maxHp;
             // Each brick is added to the game manager's brick count
-            _gm.IncreaseBrickCount();
+            if(!invulnerable)
+            {
+                _gm.IncreaseBrickCount();
+            }
             _spriteRenderer.sprite = fullHpSprite;
             if (_tmp)
             {
@@ -56,37 +63,42 @@ namespace GameObjects.Bricks
             {
                 // damage the brick
                 Damage(1);
+                ContactPoint2D contact = col.GetContact(0);
+                colBall.DoOnHitBrick(contact.point);
             }
         }
 
         public void Damage(int damage)
         {
-            // Decrease hp
-            _currentHp -= damage;
-            if (_tmp)
-            { 
-                // ReSharper disable once SpecifyACultureInStringConversionExplicitly
-                _tmp.text = _currentHp.ToString();   
-            }
-            else
+            if (!invulnerable)
             {
-                _tmp.text = "0";   
-            }
+                // Decrease hp
+                _currentHp -= damage;
+                if (_tmp)
+                { 
+                    // ReSharper disable once SpecifyACultureInStringConversionExplicitly
+                    _tmp.text = _currentHp.ToString();   
+                }
+                else
+                {
+                    _tmp.text = "0";   
+                }
             
 
-            if (_currentHp <= (maxHp*0.5f) && !_spriteChange)
-            {
-                _spriteChange = true;
-                _spriteRenderer.sprite = halfHpSprite;
-            }
-            
-            // if hp is now 0 or below 
-            if (_currentHp <= 0)
-            {
-                if (!died)
+                if (_currentHp <= (maxHp*0.5f) && !_spriteChange)
                 {
-                    Die();
-                    died = true;
+                    _spriteChange = true;
+                    _spriteRenderer.sprite = halfHpSprite;
+                }
+            
+                // if hp is now 0 or below 
+                if (_currentHp <= 0)
+                {
+                    if (!died)
+                    {
+                        Die();
+                        died = true;
+                    }
                 }
             }
         }

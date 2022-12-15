@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -7,7 +5,6 @@ using UnityEngine;
 public class Round : MonoBehaviour
 {
     private GameManager _gm;
-
     private TextMeshPro _textMeshPro;
 
     // Start is called before the first frame update
@@ -21,6 +18,10 @@ public class Round : MonoBehaviour
     void Update()
     {
         string text = _gm.currentRounds == 0 ? 1.ToString() : _gm.currentRounds.ToString();
-        _textMeshPro.text = "Round " + text;
+        if (_gm.currentRounds > _gm.maxRounds)
+        {
+            text = _gm.maxRounds.ToString();
+        }
+        _textMeshPro.text = "Round " + text + "/" + _gm.maxRounds;
     }
 }

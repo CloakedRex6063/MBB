@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FingerFeedback : MonoBehaviour
 {
     public GameObject startFingerGO;
     public GameObject endFingerGO;
+    public GameObject wrongInput;
     LineRenderer feedbackLine;
 
     SpriteRenderer startFingerGOSprite;
@@ -37,6 +37,7 @@ public class FingerFeedback : MonoBehaviour
         startFingerGO.transform.position = position;
         feedbackLine.enabled = true;
         feedbackLine.SetPosition(0, startFingerGO.transform.position);
+        feedbackLine.SetPosition(1,startFingerGO.transform.position);
     }
 
     public void Dragging(Vector3 position)
@@ -45,14 +46,9 @@ public class FingerFeedback : MonoBehaviour
         endFingerGO.transform.position = position;
         feedbackLine.SetPosition(1, endFingerGO.transform.position);
 
-        if (Vector2.Distance(endFingerGO.transform.position, startFingerGO.transform.position) <= threshold)
-        {
-            SetColor(unableToShoot);
-        }
-        else
-        {
-            SetColor(ableToShoot);
-        }
+        SetColor(Vector2.Distance(endFingerGO.transform.position, startFingerGO.transform.position) <= threshold
+            ? unableToShoot
+            : ableToShoot);
     }
 
     public void EndDrag()
@@ -73,5 +69,10 @@ public class FingerFeedback : MonoBehaviour
         startFingerGOSprite.material.color = currentColor;
         endFingerGOSprite.material.color = currentColor;
         feedbackLine.material.color = currentColor;
+    }
+
+    public void ToggleWrongInput(bool toggle)
+    {
+        wrongInput.SetActive(toggle);
     }
 }

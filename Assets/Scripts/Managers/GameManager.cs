@@ -19,6 +19,8 @@ namespace Managers
         private UIManager _uiManager;
         private Cannon _cannon;
 
+        public bool gameStarted;
+
         public enum GameState
         {
             Start,
@@ -40,12 +42,14 @@ namespace Managers
             _cannon = FindObjectOfType<Cannon>();
             // Make sure game state default state is preparation
             ChangeState(GameState.Start);
+            gameStarted = false;
         }
 
         private void Start()
         {
             StartCoroutine(StartTimer());
             _uiManager.ToggleGoActive(_uiManager.recallButton,false);
+            Time.timeScale = 1f;
         }
 
         // increase number of bricks
@@ -77,16 +81,16 @@ namespace Managers
 
         private void LevelWin()
         {
-            if (gameStates != GameState.LevelVictory && gameStates != GameState.LevelDefeat)
+            if (gameStates != GameState.LevelDefeat && gameStates != GameState.LevelVictory)
             {
                 if (brickcount < 1)
-                { 
-                    ChangeState(GameState.LevelVictory);
+                {
+                    StartCoroutine(Timer(GameState.LevelVictory));
                 }
 
                 if (brickcount > 0 && currentRounds > maxRounds)
                 {
-                    ChangeState(GameState.LevelDefeat);
+                    StartCoroutine(Timer(GameState.LevelDefeat));
                 }
             }
         }
@@ -121,12 +125,14 @@ namespace Managers
                     currentRounds++;
                     _inputManager.ToggleInputManager(true);
                     _uiManager.ToggleGoActive(_uiManager.recallButton,false);
+                    gameStarted = true;
                     break;
                 case GameState.Wait:
                     _inputManager.ToggleInputManager(false);
                     break;
                 case GameState.Action:
                     _uiManager.ToggleGoActive(_uiManager.recallButton,true);
+                    gameStarted = false;
                     break;
                 case GameState.LevelVictory:
                     _inputManager.ToggleInputManager(false);
@@ -157,6 +163,11 @@ namespace Managers
             yield return new WaitForSeconds(_uiManager.startTime);
             ChangeState(GameState.Prep);
         }
-    
+        IEnumerator Timer(GameState state)
+        {
+            Time.timeScale = 0.25f;
+            yield return new WaitForSeconds(1);
+            ChangeState(state);
+        }
     }
 }

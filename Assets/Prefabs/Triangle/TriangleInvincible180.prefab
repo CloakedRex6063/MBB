@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4765328183463912006}
   - component: {fileID: 8119234637854214775}
   - component: {fileID: 7451832356597776483}
+  - component: {fileID: 8561101462884311468}
   m_Layer: 7
   m_Name: TriangleInvincible180
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 550819685
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8f0a11550e19c7240ba03dcd291111d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,3 +116,19 @@ PolygonCollider2D:
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: -0.48}
       - {x: -0.48, y: 0.5}
+--- !u!114 &8561101462884311468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953198218928361306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fdf52d2ed7dec499c3b5603dfa4fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  invulnerable: 1
+  fullHpSprite: {fileID: 21300000, guid: 8f0a11550e19c7240ba03dcd291111d9, type: 3}
+  halfHpSprite: {fileID: 0}

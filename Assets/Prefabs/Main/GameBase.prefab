@@ -3749,10 +3749,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2441760950559482710, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5af19945039bb41449d5f9c9d5b0714a, type: 3}
     - target: {fileID: 3392374604716806868, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3788,6 +3784,10 @@ PrefabInstance:
     - target: {fileID: 3991494990687279424, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135646969552753517, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4396144290518401078, guid: 065a29435182eaf4eb273d71087c9f85, type: 3}
       propertyPath: m_Camera

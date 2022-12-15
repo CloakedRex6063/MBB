@@ -15,7 +15,10 @@ public class Recall : MonoBehaviour
         _pm = FindObjectOfType<PoolManager>();
         _gm = FindObjectOfType<GameManager>();
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(delegate { OnClickRecall(); });
+        if(_button)
+        {
+            _button.onClick.AddListener(delegate { OnClickRecall(); });
+        }
     }
 
      void OnClickRecall()
