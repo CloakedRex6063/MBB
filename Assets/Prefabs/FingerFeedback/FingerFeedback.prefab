@@ -234,8 +234,8 @@ MonoBehaviour:
   startFingerGO: {fileID: 3861695434576679108}
   endFingerGO: {fileID: 3861695435460732910}
   wrongInput: {fileID: 5619408829020757390}
-  ableToShoot: {r: 0, g: 1, b: 0, a: 1}
-  unableToShoot: {r: 1, g: 0, b: 0, a: 1}
+  ableToShoot: {r: 0.14509805, g: 0.29411766, b: 0.8509804, a: 1}
+  unableToShoot: {r: 0.7607843, g: 0.35686275, b: 0.08627451, a: 1}
 --- !u!1 &3861695435460732910
 GameObject:
   m_ObjectHideFlags: 0

@@ -3930,6 +3930,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3364d1e1ca71fbd4ea2712b60f108a04, type: 3}
+    - target: {fileID: 3155392019063870170, guid: 163434354bb9cb84ba995c83a1216e30, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 262418a804ea48d4cbd75ba6b267b71a, type: 3}
     - target: {fileID: 4192374974221602958, guid: 163434354bb9cb84ba995c83a1216e30, type: 3}
       propertyPath: m_Name
       value: Environment
