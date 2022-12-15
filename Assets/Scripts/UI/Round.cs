@@ -2,26 +2,29 @@ using Managers;
 using TMPro;
 using UnityEngine;
 
-public class Round : MonoBehaviour
+namespace UI
 {
-    private GameManager _gm;
-    private TextMeshPro _textMeshPro;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Round : MonoBehaviour
     {
-        _textMeshPro = GetComponent<TextMeshPro>();
-        _gm = FindObjectOfType<GameManager>();
-    }
+        private GameManager _gm;
+        private TextMeshPro _textMeshPro;
 
-    // Update is called once per frame
-    void Update()
-    {
-        string text = _gm.currentRounds == 0 ? 1.ToString() : _gm.currentRounds.ToString();
-        if (_gm.currentRounds > _gm.maxRounds)
+        // Start is called before the first frame update
+        void Start()
         {
-            text = _gm.maxRounds.ToString();
+            _textMeshPro = GetComponent<TextMeshPro>();
+            _gm = FindObjectOfType<GameManager>();
         }
-        _textMeshPro.text = "Round " + text + "/" + _gm.maxRounds;
+
+        // Update is called once per frame
+        void Update()
+        {
+            string text = _gm.currentRounds == 0 ? 1.ToString() : _gm.currentRounds.ToString();
+            if (_gm.currentRounds > _gm.maxRounds)
+            {
+                text = _gm.maxRounds.ToString();
+            }
+            _textMeshPro.text = "Round " + text + "/" + _gm.maxRounds;
+        }
     }
 }
