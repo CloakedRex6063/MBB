@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,5 +16,10 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuPan.SetActive(false);
         levelSelectPanel.SetActive(true);
+    }
+
+    public void FirstLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 }
