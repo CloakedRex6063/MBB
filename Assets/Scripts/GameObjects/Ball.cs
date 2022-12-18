@@ -7,6 +7,7 @@ namespace GameObjects
         private Cannon _cannon;
         private BottomLine _bl;
         private ParticleSystem _vfx;
+        private AudioSource _hitaudio;
 
         // Start is called before the first frame update
         private void Awake()
@@ -19,6 +20,9 @@ namespace GameObjects
             
             // Find the vfx particle
             _vfx = GetComponentInChildren<ParticleSystem>();
+            
+            // Find the audio component
+            _hitaudio = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -38,6 +42,7 @@ namespace GameObjects
         {
             _vfx.transform.position = position;
             _vfx.Play();
+            _hitaudio.Play();
         }
     }
 }
