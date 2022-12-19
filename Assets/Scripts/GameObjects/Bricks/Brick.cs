@@ -79,11 +79,6 @@ namespace GameObjects.Bricks
                     // ReSharper disable once SpecifyACultureInStringConversionExplicitly
                     _tmp.text = _currentHp.ToString();   
                 }
-                else
-                {
-                    _tmp.text = "0";   
-                }
-            
 
                 if (_currentHp <= (maxHp*0.5f) && !_spriteChange)
                 {
@@ -103,7 +98,7 @@ namespace GameObjects.Bricks
             }
         }
 
-        protected virtual void Die()
+        public virtual void Die()
         {
             // decrease the brick count
             _gm.DecreaseBrickCount();

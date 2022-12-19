@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GameObjects.Bricks
 {
@@ -8,7 +7,8 @@ namespace GameObjects.Bricks
     {
         public float radius;
         public int explosionDamage;
-        private bool _exploded;
+        public bool exploded;
+        public bool nuke;
         public GameObject vfx;
         public LayerMask brickLayer;
 
@@ -18,13 +18,12 @@ namespace GameObjects.Bricks
             vfx.transform.parent = null;
         }
 
-        protected override void Die()
+        public override void Die()
         {
-            if (!_exploded)
+            if (!exploded)
             {
-                _exploded = true;
+                exploded = true;
                 Explode();
-                base.Die();
             }
         }
         
@@ -32,6 +31,13 @@ namespace GameObjects.Bricks
         { 
             // ReSharper disable once Unity.PreferNonAllocApi
             Collider2D[] bricks = Physics2D.OverlapCircleAll(transform.position, radius, brickLayer);
+            vfx.SetActive(true);
+            StartCoroutine(Timer(bricks));
+        }
+        IEnumerator Timer(Collider2D[] bricks)
+        {
+            float time = nuke ? 0.4f : 0;
+            yield return new WaitForSeconds(time);
             foreach (var t in bricks)
             {
                 if (t != null)
@@ -39,7 +45,7 @@ namespace GameObjects.Bricks
                     t.GetComponent<Brick>().Damage(explosionDamage);
                 }
             }
-            vfx.SetActive(true);
+            base.Die();
         }
     }
 }

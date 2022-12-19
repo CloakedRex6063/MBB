@@ -643,11 +643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478428121577935539, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478428121577935539, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478428121577935539, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_SizeDelta.x
@@ -655,11 +655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478428121577935539, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478428121577935539, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478428121577935542, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_Sprite
@@ -833,10 +833,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1492313712681844362}
-    - target: {fileID: 8478428122339789728, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 8478428122339789734, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f4f7b69818fdba04cbe376f48380b674, type: 3}
     - target: {fileID: 8478428122354944059, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_SizeDelta.x
       value: 400
@@ -923,11 +923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478428122618663643, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478428122618663643, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478428122618663646, guid: 4393010aa78181344bdb817b6b9f3858, type: 3}
       propertyPath: m_Sprite

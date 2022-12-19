@@ -1,5 +1,6 @@
 using System.Collections;
 using GameObjects;
+using GameObjects.Bricks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,8 @@ namespace Managers
         private InputManager _inputManager;
         private UIManager _uiManager;
         private Cannon _cannon;
-
+        private ExplosiveBrick _nuke; 
+        
         public bool gameStarted;
 
         public enum GameState
@@ -40,6 +42,14 @@ namespace Managers
             _inputManager = GetComponent<InputManager>();
             _uiManager = GetComponent<UIManager>();
             _cannon = FindObjectOfType<Cannon>();
+            ExplosiveBrick[] bricks = FindObjectsOfType<ExplosiveBrick>();
+            for (int i = 0; i < bricks.Length; i++)
+            {
+                if (bricks[i].nuke)
+                {
+                    _nuke = bricks[i];
+                }
+            }
             // Make sure game state default state is preparation
             ChangeState(GameState.Start);
             gameStarted = false;
@@ -90,7 +100,7 @@ namespace Managers
 
                 if (brickcount > 0 && currentRounds > maxRounds)
                 {
-                    StartCoroutine(Timer(GameState.LevelDefeat));
+                    ChangeState(GameState.LevelDefeat);                
                 }
             }
         }
@@ -165,6 +175,7 @@ namespace Managers
         }
         IEnumerator Timer(GameState state)
         {
+            float time = _nuke ? 1 : 0;
             Time.timeScale = 0.5f;
             yield return new WaitForSeconds(1);
             ChangeState(state);
