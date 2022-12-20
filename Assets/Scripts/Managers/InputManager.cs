@@ -83,7 +83,7 @@ namespace Managers
                 _currentLoc = fingerpos;
                 // Store the difference between starting and end drag position
                 Vector2 diff = sensi * (_initialLoc-_currentLoc);
-                diff.y = Mathf.Max(0.3f, _initialLoc.y - _currentLoc.y);
+                diff.y = Mathf.Max(0.1f, _initialLoc.y - _currentLoc.y);
                 // Get tan inverse of the difference between the drag positions and convert it into degrees
                 float angle = Mathf.Rad2Deg * Mathf.Atan(diff.x/diff.y);
                 if (_initialLoc.y - _currentLoc.y > 0 && (_initialLoc-_currentLoc).magnitude > 0)

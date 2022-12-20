@@ -175,8 +175,8 @@ namespace Managers
         }
         IEnumerator Timer(GameState state)
         {
-            float time = _nuke ? 1 : 0;
-            Time.timeScale = 0.5f;
+            float time = _nuke ? 0 : 1;
+            Time.timeScale = _nuke ? 1f : 0.5f;
             yield return new WaitForSeconds(1);
             ChangeState(state);
         }

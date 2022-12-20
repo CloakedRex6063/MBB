@@ -46,14 +46,17 @@ TagManager:
   - name: stars
     uniqueID: 3940232029
     locked: 0
-  - name: 'vfx '
-    uniqueID: 4175758341
-    locked: 0
   - name: Background
     uniqueID: 1639609723
     locked: 0
   - name: Ball/Brick
     uniqueID: 550819685
+    locked: 0
+  - name: 'vfx '
+    uniqueID: 4175758341
+    locked: 0
+  - name: Walls
+    uniqueID: 2974911927
     locked: 0
   - name: Cannon
     uniqueID: 2263453515
