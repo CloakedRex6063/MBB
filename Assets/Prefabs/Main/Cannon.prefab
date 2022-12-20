@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 4396144290518401078}
   - component: {fileID: 6042875706792900818}
   - component: {fileID: 8789656721795394177}
-  - component: {fileID: 9097483622898567527}
   m_Layer: 5
   m_Name: RecallCanvas
   m_TagString: Untagged
@@ -91,7 +90,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4396144290518401078
@@ -155,18 +154,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &9097483622898567527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697603193579033108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da5839dca304514998f46e9caa8aa3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2226677407381165502
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2112622974896804524}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737486293220328216}
   - component: {fileID: 2099657143392922482}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AimLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09d14dfe777da4b4c8b0a2f9b0289617, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac50308bf700c364a9a02bc7080868ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -463,7 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256268666815597699}
   - component: {fileID: 2441760950559482710}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.03, y: -0.25}
+  m_AnchoredPosition: {x: -0.03, y: 1.2}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7356090923150862017
@@ -595,7 +582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 305043781196244942, guid: 6645c493fd5d1be4a9f33bac703b9482, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -646,7 +633,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4294901790
   m_fontColor: {r: 0.118682384, g: 0, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
