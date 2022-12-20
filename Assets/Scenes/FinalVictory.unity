@@ -235,8 +235,12 @@ PrefabInstance:
       value: FinalGameVictory
       objectReference: {fileID: 0}
     - target: {fileID: 1825895374067996276, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
+      propertyPath: m_text
+      value: "Congratulations! \nYou achieved something \nin your life"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825895374067996276, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
       propertyPath: m_fontSize
-      value: 90
+      value: 72.85
       objectReference: {fileID: 0}
     - target: {fileID: 1825895374067996276, guid: 57ef733da707b0b47a8528be123e993c, type: 3}
       propertyPath: m_fontStyle
