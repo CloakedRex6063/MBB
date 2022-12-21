@@ -170,22 +170,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 514250854, guid: 61459308c48e88e4ca317e39144b083e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 514250854, guid: 61459308c48e88e4ca317e39144b083e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 514250854, guid: 61459308c48e88e4ca317e39144b083e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMainMenuActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 514250854, guid: 61459308c48e88e4ca317e39144b083e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 514250855, guid: 61459308c48e88e4ca317e39144b083e, type: 3}
       propertyPath: m_Sprite
       value: 
