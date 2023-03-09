@@ -39,6 +39,7 @@ namespace Managers
 
         private void Awake()
         {
+            Application.targetFrameRate = 120;
             _inputManager = GetComponent<InputManager>();
             _uiManager = GetComponent<UIManager>();
             _cannon = FindObjectOfType<Cannon>();
